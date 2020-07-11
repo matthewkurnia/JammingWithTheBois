@@ -24,6 +24,12 @@ config/name="JammingWithTheBois"
 run/main_scene="res://src/Main.tscn"
 config/icon="res://assets/icon.png"
 
+[autoload]
+
+Music="*res://src/Autoload/Music.tscn"
+Global="*res://src/Autoload/Global.gd"
+Transition="*res://src/Autoload/Transition.tscn"
+
 [display]
 
 window/size/width=1920

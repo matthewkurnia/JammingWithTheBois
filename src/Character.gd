@@ -2,6 +2,8 @@ class_name Character
 
 extends Area2D
 
+signal move(dir)
+
 onready var vision = $RayCast2D
 onready var tween = $Tween
 export var speed = 4.0
@@ -12,6 +14,7 @@ func moveGrid(dir):
 	tween.interpolate_property(self, "position",
 		position, position + dir*tileSize,
 		1.0/speed, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
+	emit_signal("move", dir)
 	set_physics_process(false)
 	tween.start()
 	yield(tween, "tween_completed")
