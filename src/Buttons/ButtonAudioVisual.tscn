@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/audio/Button.wav" type="AudioStream" id=1]
+[ext_resource path="res://src/Buttons/ButtonAudioVisual.gd" type="Script" id=2]
+
+[node name="ButtonAudioVisual" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="ButtonAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 1 )
+bus = "Input"
+
+[node name="Released" type="Sprite" parent="."]
+region_enabled = true
+region_rect = Rect2( 0, 0, 100, 100 )
+
+[node name="Pressed" type="Sprite" parent="."]
+region_enabled = true
+region_rect = Rect2( 0, 0, 100, 100 )

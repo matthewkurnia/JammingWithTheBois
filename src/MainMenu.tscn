@@ -5,7 +5,7 @@
 [ext_resource path="res://assets/title_card.png" type="Texture" id=3]
 [ext_resource path="res://assets/Poppins/Poppins-Regular.ttf" type="DynamicFontData" id=4]
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=1]
 resource_name = "default"
 length = 1.5
 loop = true
@@ -61,12 +61,12 @@ void fragment() {
 }
 "
 
-[sub_resource type="ShaderMaterial" id=4]
+[sub_resource type="ShaderMaterial" id=3]
 shader = SubResource( 2 )
 shader_param/frequency = 10.0
 shader_param/depth = 0.005
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=4]
 size = 36
 extra_spacing_char = 14
 font_data = ExtResource( 4 )
@@ -123,10 +123,10 @@ texture = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CenterContainer/Squares"]
 autoplay = "default"
-anims/default = SubResource( 3 )
+anims/default = SubResource( 1 )
 
 [node name="TextureRect" type="TextureRect" parent="."]
-material = SubResource( 4 )
+material = SubResource( 3 )
 margin_right = 40.0
 margin_bottom = 40.0
 texture = ExtResource( 3 )
@@ -151,7 +151,7 @@ __meta__ = {
 margin_top = 99.0
 margin_right = 721.0
 margin_bottom = 150.0
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 4 )
 text = "PRESS ANY KEY TO START"
 align = 1
 valign = 1
