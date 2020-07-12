@@ -7,6 +7,7 @@ signal move(dir)
 onready var vision = $RayCast2D
 onready var tween = $Tween
 export var speed = 4.0
+var can_handle_input = true
 
 const tileSize := 100
 
@@ -36,4 +37,5 @@ func updatePos():
 		checkObstacle(Vector2(0, yMove))
 		
 func _physics_process(delta):
-	updatePos()
+	if can_handle_input:
+		updatePos()

@@ -47,6 +47,9 @@ font_data = ExtResource( 4 )
 "item",
 ]]
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Particles2D" type="Particles2D" parent="."]
 position = Vector2( 0, -12 )

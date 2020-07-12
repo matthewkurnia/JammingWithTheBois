@@ -1,6 +1,7 @@
 extends Character
 
 export var availMoves = [10, 10, 10, 10]
+onready var interface = $Interface
 onready var animation_player = $Sprite/AnimationPlayer
 onready var sound_error = $SoundError
 onready var sound_move = $SoundMove
@@ -8,39 +9,51 @@ onready var sound_pick_up = $SoundPickUp
 
 func _ready():
 	self.connect("move", animation_player, "play_anim")
+	for i in len(availMoves):
+		interface.update_move(i, availMoves[i])
 
 func _physics_process(delta):
 	$Label.text = String(availMoves[0]) + " " + String(availMoves[1]) + " " + String(availMoves[2]) + " " + String(availMoves[3])
 
 func moveGrid(dir):
+	var index = -1
 	if dir.x == 1:
 		if availMoves[0] == 0:
 			play_error()
 			return
 		availMoves[0] -= 1
+		index = 0
 	elif dir.x == -1:
 		if availMoves[1] == 0:
 			play_error()
 			return
 		availMoves[1] -= 1
+		index = 1
 	elif dir.y == 1:
 		if availMoves[2] == 0:
 			play_error()
 			return
 		availMoves[2] -= 1
+		index = 2
 	elif dir.y == -1:
 		if availMoves[3] == 0:
 			play_error()
 			return
 		availMoves[3] -= 1
+		index = 3
 	
 	sound_move.play()
+	interface.update_move(index, availMoves[index])
+	
 	.moveGrid(dir)
 
 func play_error():
 	if not sound_error.playing:
 		animation_player.play_error()
 		sound_error.play()
+
+func exit():
+	animation_player.exit()
 
 func _on_Player_area_entered(area):
 	if area.is_in_group("item"):
@@ -56,3 +69,4 @@ func _on_Player_area_entered(area):
 		availMoves[index] += area.value
 		area.queue_free()
 		sound_pick_up.play()
+		interface.update_move(index, availMoves[index])

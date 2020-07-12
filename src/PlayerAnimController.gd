@@ -16,5 +16,8 @@ func play_anim(dir = Vector2.ZERO):
 		Vector2.DOWN:
 			anim_state_machine.travel("up_down")
 
+func exit():
+	anim_state_machine.start("exit")
+
 func play_error():
 	anim_state_machine.travel("error")
