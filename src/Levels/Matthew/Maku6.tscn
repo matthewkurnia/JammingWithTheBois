@@ -17,6 +17,11 @@ tile_data = PoolIntArray( -458764, 0, 131079, -458763, 0, 131077, -458762, 0, 13
 position = Vector2( -100, 0 )
 availMoves = [ 2, 5, 1, 1 ]
 
+[node name="Label" parent="Title/Control/CenterContainer" index="0"]
+margin_left = 226.0
+margin_right = 1693.0
+text = "THE WAY FORWARD IS BACK"
+
 [node name="portalPack" parent="." index="7" instance=ExtResource( 2 )]
 portal1Pos = Vector2( 400, -100 )
 portal2Pos = Vector2( -400, 0 )

@@ -27,7 +27,7 @@ _global_script_class_icons={
 [application]
 
 config/name="JammingWithTheBois"
-run/main_scene="res://src/Main.tscn"
+run/main_scene="res://src/MainMenu.tscn"
 config/icon="res://assets/icon.png"
 
 [autoload]
@@ -41,6 +41,7 @@ Transition="*res://src/Interface/Transition.tscn"
 
 window/size/width=1920
 window/size/height=1080
+window/size/fullscreen=true
 window/size/test_width=960
 window/size/test_height=540
 window/stretch/mode="2d"

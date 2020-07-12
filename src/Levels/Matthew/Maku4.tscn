@@ -17,7 +17,7 @@ tile_data = PoolIntArray( -458764, 0, 131079, -458763, 0, 131077, -458762, 0, 13
 
 [node name="Player" parent="." index="3"]
 position = Vector2( -400, 100 )
-availMoves = [ 6, 4, 0, 4 ]
+availMoves = [ 6, 4, 1, 4 ]
 
 [node name="Label" parent="Title/Control/CenterContainer" index="0"]
 margin_left = 595.0
@@ -30,7 +30,7 @@ value = 8
 
 [node name="addDown" parent="." index="8" instance=ExtResource( 2 )]
 position = Vector2( -100, -100 )
-value = 2
+value = 3
 
 [node name="addDown2" parent="." index="9" instance=ExtResource( 2 )]
 position = Vector2( 400, -100 )
