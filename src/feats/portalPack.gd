@@ -22,18 +22,18 @@ func set_portal_2(value):
 
 func _on_Portal1_area_entered(area):
 	if area.is_in_group("player") and !alreadyTransported:
-		var relativePos = area.position - $Portal1.position
-		var newPos = $Portal2.position + relativePos
+		var newPos = $Portal2.position
 		area.position = newPos
+		area.stop_move()
 		alreadyTransported = true
 		enter_anim.play("enter")
 		active_audio.play()
 
 func _on_Portal2_area_entered(area):
 	if area.is_in_group("player") and !alreadyTransported:
-		var relativePos = area.position - $Portal2.position
-		var newPos = $Portal1.position + relativePos
+		var newPos = $Portal1.position
 		area.position = newPos
+		area.stop_move()
 		alreadyTransported = true
 		enter_anim.play("enter")
 		active_audio.play()
