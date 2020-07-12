@@ -9,8 +9,7 @@ onready var sound_pick_up = $SoundPickUp
 
 func _ready():
 	self.connect("move", animation_player, "play_anim")
-	for i in len(availMoves):
-		interface.update_move(i, availMoves[i])
+	update_interface()
 
 func moveGrid(dir):
 	var index = -1
@@ -51,6 +50,10 @@ func play_error():
 
 func exit():
 	animation_player.exit()
+
+func update_interface():
+	for i in len(availMoves):
+		interface.update_move(i, availMoves[i])
 
 func _on_Player_area_entered(area):
 	if area.is_in_group("item"):

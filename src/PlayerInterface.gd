@@ -2,11 +2,12 @@ extends CanvasLayer
 
 onready var left = $Control/CenterContainer/HBoxContainer/Left
 onready var right = $Control/CenterContainer/HBoxContainer/Right
-onready var up = $Control/CenterContainer/HBoxContainer/Up
-onready var down = $Control/CenterContainer/HBoxContainer/Down
+onready var up = $Control/CenterContainer/HBoxContainer/UpDown/Up
+onready var down = $Control/CenterContainer/HBoxContainer/UpDown/Down
 
-func use_move(dir):
-	pass
+func _ready():
+	var label = up.get_node("Label")
+	up.move_child(label, 0)
 
 func update_move(index, value):
 	match index:
