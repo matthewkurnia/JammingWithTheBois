@@ -14,3 +14,8 @@ availMoves = [ 4, 4, 4, 4 ]
 
 [node name="addUp" parent="." index="6" instance=ExtResource( 3 )]
 position = Vector2( 200, -100 )
+
+[node name="Label" parent="Title/Control/CenterContainer" index="0"]
+margin_left = 20.0
+margin_right = 671.0
+text = "TEST LEVEL 1"
