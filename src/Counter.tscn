@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/Counter.gd" type="Script" id=1]
-[ext_resource path="res://assets/Poppins/Poppins-Bold.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/Poppins/Poppins-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://assets/arrow.png" type="Texture" id=3]
 
 [sub_resource type="DynamicFont" id=1]
@@ -35,26 +35,25 @@ __meta__ = {
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 margin_right = 133.0
-margin_bottom = 60.0
-rect_min_size = Vector2( 60, 60 )
+margin_bottom = 40.0
+rect_min_size = Vector2( 40, 40 )
 
 [node name="Control" type="Control" parent="CenterContainer"]
 margin_left = 66.0
-margin_top = 30.0
+margin_top = 20.0
 margin_right = 66.0
-margin_bottom = 30.0
+margin_bottom = 20.0
 
 [node name="Sprite" type="Sprite" parent="CenterContainer/Control"]
 texture = ExtResource( 3 )
 
 [node name="Label" type="Label" parent="."]
-margin_top = 64.0
+margin_top = 44.0
 margin_right = 133.0
-margin_bottom = 120.0
+margin_bottom = 100.0
 custom_fonts/font = SubResource( 1 )
 text = "LOREM"
 align = 1
-valign = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/add = SubResource( 2 )
