@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://src/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://assets/menu_square.png" type="Texture" id=2]
 [ext_resource path="res://assets/title_card.png" type="Texture" id=3]
 [ext_resource path="res://assets/Poppins/Poppins-Regular.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://src/Intro.tscn" type="PackedScene" id=5]
 
 [sub_resource type="Animation" id=1]
 resource_name = "default"
@@ -78,6 +79,7 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+level_1 = ExtResource( 5 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
