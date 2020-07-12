@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://src/Counter.gd" type="Script" id=1]
+[ext_resource path="res://assets/Poppins/Poppins-Bold.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/arrow.png" type="Texture" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+font_data = ExtResource( 2 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "add"
+length = 0.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("CenterContainer/Control/Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.3, 1.3 ), Vector2( 1, 1 ) ]
+}
+
+[node name="Counter" type="VBoxContainer"]
+margin_right = 133.0
+margin_bottom = 120.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+margin_right = 133.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 60, 60 )
+
+[node name="Control" type="Control" parent="CenterContainer"]
+margin_left = 66.0
+margin_top = 30.0
+margin_right = 66.0
+margin_bottom = 30.0
+
+[node name="Sprite" type="Sprite" parent="CenterContainer/Control"]
+texture = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="."]
+margin_top = 64.0
+margin_right = 133.0
+margin_bottom = 120.0
+custom_fonts/font = SubResource( 1 )
+text = "LOREM"
+align = 1
+valign = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/add = SubResource( 2 )

@@ -1,9 +1,8 @@
-extends Control
+extends CanvasLayer
 
 signal animation_finished(anim_name)
 
-export var asdf: PackedScene
-onready var anim_player = $AnimationPlayer
+onready var anim_player = $Transition/AnimationPlayer
 
 func fade_in():
 	anim_player.play("fade_in")

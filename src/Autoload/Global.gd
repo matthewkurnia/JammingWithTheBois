@@ -1,17 +1,16 @@
 extends Node
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+func restart():
+	Transition.fade_in()
+	get_tree().paused = true
+	yield(Transition, "animation_finished")
+	get_tree().reload_current_scene()
+	Transition.fade_out()
+	get_tree().paused = false
 
 func change_scene(new_scene: PackedScene):
-	get_tree().get_current_scene().pause_mode = Node.PAUSE_MODE_STOP
+	var curr_scene = get_tree().get_current_scene()
+	curr_scene.pause_mode = Node.PAUSE_MODE_STOP
 	Transition.fade_in()
 	Music.set_low_pass(true, 0.2)
 	yield(Transition, "animation_finished")
