@@ -1,19 +1,121 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://assets/icon.png" type="Texture" id=1]
+[ext_resource path="res://assets/portal.png" type="Texture" id=1]
 [ext_resource path="res://src/feats/portalPack.gd" type="Script" id=2]
+[ext_resource path="res://assets/round_particle.png" type="Texture" id=3]
+[ext_resource path="res://assets/audio/Portal.wav" type="AudioStream" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 36.4899, 34.5027 )
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="Curve" id=2]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.756983, 0.603409 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=3]
+curve = SubResource( 2 )
+
+[sub_resource type="ParticlesMaterial" id=4]
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 254.49
+initial_velocity_random = 0.17
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 32.74
+linear_accel_random = 0.24
+scale_curve = SubResource( 3 )
+
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 36.9547, 33.5731 )
+
+[sub_resource type="Animation" id=6]
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Portal1:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Portal2:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0 ]
+}
+
+[sub_resource type="Animation" id=7]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Portal1:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 1.5, 1.5 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Portal2:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 1.5, 1.5 ), Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Portal1/Particles2D:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Portal2/Particles2D:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
 [node name="portalPack" type="Node2D"]
 script = ExtResource( 2 )
 
 [node name="Portal1" type="Area2D" parent="."]
-position = Vector2( 50, 0 )
+position = Vector2( 100, 0 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="CollisionPolygon2D" type="CollisionShape2D" parent="Portal1"]
 shape = SubResource( 1 )
@@ -22,15 +124,47 @@ shape = SubResource( 1 )
 texture = ExtResource( 1 )
 flip_v = true
 
+[node name="Particles2D" type="Particles2D" parent="Portal1"]
+z_index = 100
+emitting = false
+lifetime = 0.2
+one_shot = true
+process_material = SubResource( 4 )
+texture = ExtResource( 3 )
+
 [node name="Portal2" type="Area2D" parent="."]
-position = Vector2( -50, 0 )
+position = Vector2( -100, 0 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="CollisionPolygon2D" type="CollisionShape2D" parent="Portal2"]
-shape = SubResource( 2 )
+shape = SubResource( 5 )
 
 [node name="Sprite" type="Sprite" parent="Portal2"]
 texture = ExtResource( 1 )
 flip_v = true
+
+[node name="Particles2D" type="Particles2D" parent="Portal2"]
+z_index = 100
+emitting = false
+lifetime = 0.2
+one_shot = true
+process_material = SubResource( 4 )
+texture = ExtResource( 3 )
+
+[node name="RotationAnim" type="AnimationPlayer" parent="."]
+autoplay = "rotation"
+anims/rotation = SubResource( 6 )
+
+[node name="EnterAnim" type="AnimationPlayer" parent="."]
+anims/enter = SubResource( 7 )
+
+[node name="ActiveAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -6.148
+pitch_scale = 1.2
+bus = "Input"
 [connection signal="area_entered" from="Portal1" to="." method="_on_Portal1_area_entered"]
 [connection signal="area_exited" from="Portal1" to="." method="_on_Portal1_area_exited"]
 [connection signal="area_entered" from="Portal2" to="." method="_on_Portal2_area_entered"]

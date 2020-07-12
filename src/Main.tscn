@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/boxStuff.tscn" type="PackedScene" id=2]
@@ -13,8 +13,6 @@
 position = Vector2( 100, 100 )
 
 [node name="portalPack" parent="." instance=ExtResource( 3 )]
-portal1Pos = Vector2( 200, 0 )
-portal2Pos = Vector2( 600, 600 )
 
 [node name="Walls" parent="." instance=ExtResource( 3 )]
 
@@ -25,16 +23,20 @@ position = Vector2( 800, 0 )
 
 [node name="addRight" parent="." instance=ExtResource( 5 )]
 position = Vector2( 200, 200 )
+z_index = 0
 value = 5
 
 [node name="addUp" parent="." instance=ExtResource( 6 )]
 position = Vector2( 300, 400 )
+z_index = 0
 
 [node name="addLeft" parent="." instance=ExtResource( 7 )]
 position = Vector2( 800, 900 )
+z_index = 0
 
 [node name="addDown" parent="." instance=ExtResource( 8 )]
 position = Vector2( 1100, 600 )
+z_index = 0
 
 [node name="laser" parent="." instance=ExtResource( 9 )]
 direction = 1

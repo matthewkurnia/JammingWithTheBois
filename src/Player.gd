@@ -12,9 +12,6 @@ func _ready():
 	for i in len(availMoves):
 		interface.update_move(i, availMoves[i])
 
-func _physics_process(delta):
-	$Label.text = String(availMoves[0]) + " " + String(availMoves[1]) + " " + String(availMoves[2]) + " " + String(availMoves[3])
-
 func moveGrid(dir):
 	var index = -1
 	if dir.x == 1:

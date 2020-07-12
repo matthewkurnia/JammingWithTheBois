@@ -68,6 +68,7 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
 }
+next_level = null
 
 [node name="Sprite" type="Sprite" parent="Exit"]
 texture = ExtResource( 1 )
@@ -111,17 +112,18 @@ __meta__ = {
 [node name="CenterContainer" type="CenterContainer" parent="Title/Control"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -345.5
-margin_right = 345.5
-margin_bottom = 100.0
-rect_min_size = Vector2( 600, 160 )
+margin_left = -960.0
+margin_right = 960.0
+margin_bottom = 160.0
+rect_min_size = Vector2( 1920, 160 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="Title/Control/CenterContainer"]
+margin_left = 614.0
 margin_top = 30.0
-margin_right = 691.0
+margin_right = 1305.0
 margin_bottom = 129.0
 custom_fonts/font = SubResource( 3 )
 text = "LOREM IPSUM"

@@ -46,6 +46,7 @@ font_data = ExtResource( 4 )
 [node name="Item" type="Area2D" groups=[
 "item",
 ]]
+z_index = 20
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
