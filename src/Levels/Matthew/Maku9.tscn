@@ -21,6 +21,8 @@ position = Vector2( -100, 200.346 )
 availMoves = [ 12, 12, 0, 0 ]
 
 [node name="Label" parent="Title/Control/CenterContainer" index="0"]
+margin_left = 613.0
+margin_right = 1306.0
 text = "ROUNDABOUT"
 
 [node name="Counterwise" parent="." index="7" instance=ExtResource( 5 )]

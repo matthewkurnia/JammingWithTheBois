@@ -40,7 +40,8 @@ scale_curve = SubResource( 4 )
 extents = Vector2( 36.3593, 37.7382 )
 
 [sub_resource type="DynamicFont" id=7]
-outline_color = Color( 0, 0, 0, 1 )
+size = 30
+outline_size = 6
 font_data = ExtResource( 4 )
 
 [node name="Item" type="Area2D" groups=[

@@ -304,23 +304,19 @@ __meta__ = {
 }
 
 [node name="CenterContainer" type="CenterContainer" parent="Interface/Control"]
-anchor_left = 0.5
 anchor_top = 1.0
-anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -960.0
 margin_top = -300.0
-margin_right = 960.0
+margin_right = 389.0
+margin_bottom = -96.0
 rect_min_size = Vector2( 0, 100 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Interface/Control/CenterContainer"]
-margin_left = 765.0
-margin_top = 48.0
-margin_right = 1154.0
-margin_bottom = 252.0
+margin_right = 389.0
+margin_bottom = 204.0
 
 [node name="Left" parent="Interface/Control/CenterContainer/HBoxContainer" instance=ExtResource( 7 )]
 margin_right = 127.0

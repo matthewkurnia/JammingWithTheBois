@@ -11,6 +11,10 @@ func _ready():
 	self.connect("move", animation_player, "play_anim")
 	update_interface()
 
+func stop_move():
+	tween.stop_all()
+	set_physics_process(true)
+
 func moveGrid(dir):
 	var index = -1
 	if dir.x == 1:
