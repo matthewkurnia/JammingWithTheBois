@@ -317,39 +317,98 @@ __meta__ = {
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Interface/Control/CenterContainer"]
-margin_left = 688.0
-margin_top = 90.0
-margin_right = 1232.0
-margin_bottom = 210.0
+margin_left = 765.0
+margin_top = 48.0
+margin_right = 1154.0
+margin_bottom = 252.0
 
 [node name="Left" parent="Interface/Control/CenterContainer/HBoxContainer" instance=ExtResource( 7 )]
+margin_right = 127.0
+margin_bottom = 204.0
+alignment = 2
+
+[node name="CenterContainer" parent="Interface/Control/CenterContainer/HBoxContainer/Left" index="0"]
+margin_top = 104.0
+margin_right = 127.0
+margin_bottom = 144.0
+
+[node name="Control" parent="Interface/Control/CenterContainer/HBoxContainer/Left/CenterContainer" index="0"]
+margin_left = 63.0
+margin_right = 63.0
 
 [node name="Sprite" parent="Interface/Control/CenterContainer/HBoxContainer/Left/CenterContainer/Control" index="0"]
 rotation = -1.5708
 
+[node name="Label" parent="Interface/Control/CenterContainer/HBoxContainer/Left" index="1"]
+margin_top = 148.0
+margin_right = 127.0
+margin_bottom = 204.0
+
+[node name="UpDown" type="VBoxContainer" parent="Interface/Control/CenterContainer/HBoxContainer"]
+margin_left = 131.0
+margin_right = 258.0
+margin_bottom = 204.0
+
+[node name="Up" parent="Interface/Control/CenterContainer/HBoxContainer/UpDown" instance=ExtResource( 7 )]
+margin_right = 127.0
+margin_bottom = 100.0
+
+[node name="CenterContainer" parent="Interface/Control/CenterContainer/HBoxContainer/UpDown/Up" index="0"]
+margin_right = 127.0
+
+[node name="Control" parent="Interface/Control/CenterContainer/HBoxContainer/UpDown/Up/CenterContainer" index="0"]
+margin_left = 63.0
+margin_right = 63.0
+
+[node name="Label" parent="Interface/Control/CenterContainer/HBoxContainer/UpDown/Up" index="1"]
+margin_right = 127.0
+
+[node name="Down" parent="Interface/Control/CenterContainer/HBoxContainer/UpDown" instance=ExtResource( 7 )]
+margin_top = 104.0
+margin_right = 127.0
+margin_bottom = 204.0
+
+[node name="CenterContainer" parent="Interface/Control/CenterContainer/HBoxContainer/UpDown/Down" index="0"]
+margin_right = 127.0
+
+[node name="Control" parent="Interface/Control/CenterContainer/HBoxContainer/UpDown/Down/CenterContainer" index="0"]
+margin_left = 63.0
+margin_right = 63.0
+
+[node name="Sprite" parent="Interface/Control/CenterContainer/HBoxContainer/UpDown/Down/CenterContainer/Control" index="0"]
+rotation = 3.14159
+
+[node name="Label" parent="Interface/Control/CenterContainer/HBoxContainer/UpDown/Down" index="1"]
+margin_right = 127.0
+
 [node name="Right" parent="Interface/Control/CenterContainer/HBoxContainer" instance=ExtResource( 7 )]
-margin_left = 137.0
-margin_right = 270.0
+margin_left = 262.0
+margin_right = 389.0
+margin_bottom = 204.0
+alignment = 2
+
+[node name="CenterContainer" parent="Interface/Control/CenterContainer/HBoxContainer/Right" index="0"]
+margin_top = 104.0
+margin_right = 127.0
+margin_bottom = 144.0
+
+[node name="Control" parent="Interface/Control/CenterContainer/HBoxContainer/Right/CenterContainer" index="0"]
+margin_left = 63.0
+margin_right = 63.0
 
 [node name="Sprite" parent="Interface/Control/CenterContainer/HBoxContainer/Right/CenterContainer/Control" index="0"]
 rotation = 1.5708
 
-[node name="Up" parent="Interface/Control/CenterContainer/HBoxContainer" instance=ExtResource( 7 )]
-margin_left = 274.0
-margin_right = 407.0
-
-[node name="Down" parent="Interface/Control/CenterContainer/HBoxContainer" instance=ExtResource( 7 )]
-margin_left = 411.0
-margin_right = 544.0
-
-[node name="Sprite" parent="Interface/Control/CenterContainer/HBoxContainer/Down/CenterContainer/Control" index="0"]
-rotation = 3.14159
+[node name="Label" parent="Interface/Control/CenterContainer/HBoxContainer/Right" index="1"]
+margin_top = 148.0
+margin_right = 127.0
+margin_bottom = 204.0
 [connection signal="area_entered" from="." to="." method="_on_Player_area_entered"]
 
 [editable path="Interface/Control/CenterContainer/HBoxContainer/Left"]
 
+[editable path="Interface/Control/CenterContainer/HBoxContainer/UpDown/Up"]
+
+[editable path="Interface/Control/CenterContainer/HBoxContainer/UpDown/Down"]
+
 [editable path="Interface/Control/CenterContainer/HBoxContainer/Right"]
-
-[editable path="Interface/Control/CenterContainer/HBoxContainer/Up"]
-
-[editable path="Interface/Control/CenterContainer/HBoxContainer/Down"]

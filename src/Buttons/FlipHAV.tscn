@@ -10,4 +10,5 @@ texture = ExtResource( 2 )
 region_rect = Rect2( 100, 0, 100, 100 )
 
 [node name="Pressed" parent="." index="2"]
+visible = false
 texture = ExtResource( 2 )
